@@ -1,429 +1,808 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JQK IOS - HACK GAME IOS</title>
-    <style>
-        :root {
-    --bg-color:#f5f5f5;
-    --card-bg:#ffffff;
-    --text-color:#222;
-    --text-light:#333;
-    --accent-green:#28a745;
-    --btn-download:linear-gradient(135deg,#007bff,#00bfff);
-    --btn-key:linear-gradient(135deg,#ff4d4d,#ff9800);
-}
 
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-light);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<meta charset="UTF-8">
 
-        /* Nền tuyết rơi nhẹ nhàng phía sau */
-        #snow-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.6;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Tiêu đề chính dạng Shop */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+<title>TITANIUM GAME STORE</title>
 
-        header h1 {
-            font-size: 2.8em;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin: 0;
-            background: linear-gradient(to right, #fff, var(--text-color), #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
-        }
+<link rel="stylesheet" href="css/style.css">
 
-        header p {
-            color:#666;
-            margin-top: 5px;
-            font-size: 0.95em;
-        }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        /* Khu vực danh mục */
-        .category-section {
-            width: 100%;
-            max-width: 1200px;
-            margin-bottom: 40px;
-        }
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-        .category-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: var(--text-color);
-            border-left: 4px solid var(--text-color);
-            padding-left: 10px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+</head>
 
-        /* Bố cục lưới chứa các thẻ sản phẩm giống Shop */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
+<body>
 
-        /* Thẻ sản phẩm (Card Shop TRONG SUỐT) */
-        .product-card {
-            background:#fff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px); /* Hiệu ứng mờ kính phía sau */
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
+<!-- Navbar -->
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(197, 160, 89, 0.6);
-            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.25);
-            background: rgba(255, 255, 255, 0.1);
-        }
+<nav>
 
-        /* Tên sản phẩm đổi sang màu trắng để nổi bật trên khung trong suốt */
-        .product-name {
-            font-size: 1.25em;
-            font-weight: bold;
-            margin: 0 0 10px 0;
-            color:#222;
-            text-shadow:none;
-        }
+<div class="logo">
 
-        /* Nhãn trạng thái (Status tag) */
-        .product-status {
-            display: inline-block;
-            font-size: 0.75em;
-            padding: 4px 8px;
-            border-radius: 5px;
-            background: rgba(0, 255, 157, 0.15);
-            color: var(--accent-green);
-            font-weight: bold;
-            margin-bottom: 15px;
-            align-self: flex-start;
-        }
+🎮 TITANIUM
 
-        /* CSS cho Banner hình ảnh bên trong card */
-        .banner img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto 15px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        }
+</div>
 
-        /* Khu vực nút bấm trong thẻ */
-        .card-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: auto; /* Đẩy cụm nút xuống dưới cùng card */
-        }
+<div class="search">
 
-        .btn {
-            display: block;
-            text-align: center;
-            padding: 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9em;
-            color: #fff;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
+<input
+type="text"
+id="searchInput"
+placeholder="Tìm kiếm game...">
 
-        .btn:hover {
-            filter: brightness(1.15);
-            transform: scale(1.01);
-        }
+<i class="fa-solid fa-magnifying-glass"></i>
 
-        .btn-download {
-            background: var(--btn-download);
-            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-        }
+</div>
 
-        .btn-key {
-            background: var(--btn-key);
-            box-shadow: 0 4px 12px rgba(255, 0, 127, 0.3);
-        }
+<div class="menu">
 
-        /* Thông tin liên hệ phía dưới */
-        .footer-info {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            border-top:1px solid #ddd;
-            width: 100%;
-            max-width: 600px;
-            color: var(--text-light);
-        }
+<a href="#">Trang chủ</a>
 
-        .footer-info p {
-            margin: 10px 0;
-            font-size: 1.1em;
-            font-weight: 500;
-        }
-        
-        .tele-link {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .bank-info {
-            color: var(--text-color);
-            font-weight: bold;
-        }
+<a href="#">Game</a>
 
-    
+<a href="#">Mới</a>
 
-    <header>
-        <h1> 𝗙𝗔𝗡𝗚 𝗛𝗔𝗞𝗜 </h1>
-        <p> Cung Cấp Hack Và Key Free </p>
-    </header>
+<a href="#">Đăng nhập</a>
 
-    <div class="category-section">
-        <div class="category-title">📂 HACK PUBG IOS </div>
-        <div class="products-grid">
-            
-            <div class="product-card">
-                <div>
-                    <div class="product-name">DRACULA PRO</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://i.postimg.cc/sxfyf63Q/IMG-0839.jpg" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://ipas.cc/95mnuq" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/GSo0CC" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
-                        <div class="product-card">
-                <div>
-                    <div class="product-name">BIGCHANG</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://i.postimg.cc/gj7Qf20w/01779b60-6f3f-46d6-8293-24816143f8e5.png" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://bbmkts.com/ipa/download/pubg" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/1nbmlhHv" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
+</div>
 
-            <div class="product-card">
-                <div>
-                    <div class="product-name">LUXURY</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://i.postimg.cc/90LJtVkn/IMG-0444.jpg" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://appinstall.cloud/install/hecoiwc02222" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/PSho70" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
+</nav>
 
-            <div class="product-card">
-                <div>
-                    <div class="product-name">TIMO</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://i.postimg.cc/YS7Y9Znz/IMG-0445.jpg" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://ipas.cc/d6xbju" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/fQSwXb" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
-            
-            <div class="product-card">
-                <div>
-                    <div class="product-name">RAVEN</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://i.postimg.cc/9XB78LQS/IMG-0447.png" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://transfer.it/t/m1CrFm0xHZAJ" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/mc9mlAF" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div>
-                    <div class="product-name">ZORO</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://ipa.xumod.vn/uploads/images/9B247E1E-DEAF-4DD6-8677-148334522007_20260517_120823_7e9d08.png" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://ipas.cc/662kxr" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/KwhxXq" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div>
-                    <div class="product-name">KONG</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://ipa.xumod.vn/uploads/images/7DABF052-F0C9-441A-A699-365B735B3B2C_20260523_102337_f50699.png" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://transfer.it/t/AQDHL9wHUBAR" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/X4ukl2X" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div>
-                    <div class="product-name">DOLPHIN</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://ipa.xumod.vn/uploads/images/42632131-E5E8-44AB-BBB0-72966C4390DC_20260524_114622_f6cd6f.png" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://ipas.cc/fu7dic" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/mc9mlAF" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
-             <div class="product-card">
-                <div>
-                    <div class="product-name">ZERO</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://ipa.xumod.vn/uploads/images/1I7FRNQJ7_318U6A_20260323_054019_698bb9.jpeg" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://chaptodocquyen.appinstall.cloud/VN.ipa" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/X4ukl2X" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div>
-                    <div class="product-name">SHARK</div>
-                    <div class="product-status">● Đang Hoạt Động </div>
-                </div>
-                <div class="banner">
-                    <img src="https://i.postimg.cc/2SBQqcc0/IMG-0667.jpg" alt="Banner">
-                </div>
-                <div class="card-actions">
-                    <a href="https://ipas.cc/pk2ch0" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/X4ukl2X" class="btn btn-key">LẤY KEY</a>
-                </div>
-            </div>
-            
-           
-            
-    <div class="footer-info">
-        <p>  : <a href="https://t.me/FangLxr" class="tele-link" target="_blank">Tele Admin</a></p>
-        <p>  : <a href="https://t.me/FANGPUBGVN" class="tele-link" target="_blank">Kênh Chính</a></p>
-        <p>  : <a href="https://t.me/FANGHAKICHAT" class="tele-link" target="_blank">Kênh Chat</a></p>
-    </div>
+<!-- Banner -->
 
-    <script>
-        const canvas = document.getElementById('snow-canvas');
-        const ctx = canvas.getContext('2d');
+<section class="swiper mySwiper">
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+<div class="swiper-wrapper">
 
-        const numFlakes = 60; 
-        const flakes = [];
+<div class="swiper-slide">
 
-        for (let i = 0; i < numFlakes; i++) {
-            flakes.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 2 + 1,
-                speed: Math.random() * 0.5 + 0.3,
-                opacity: Math.random() * 0.5 + 0.2
-            });
-        }
+<img src="assets/banner/pubg.jpg">
 
-        function drawSnow() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            for (let i = 0; i < numFlakes; i++) {
-                const f = flakes[i];
-                ctx.beginPath();
-                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
-                ctx.fillStyle = `rgba(255, 255, 255, ${f.opacity})`;
-                ctx.fill();
-            }
-            moveSnow();
-        }
+</div>
 
-        function moveSnow() {
-            for (let i = 0; i < numFlakes; i++) {
-                const f = flakes[i];
-                f.y += f.speed; 
-                f.x += Math.sin(f.y / 30) * 0.3; 
+<div class="swiper-slide">
 
-                if (f.y > canvas.height) {
-                    flakes[i].y = 0;
-                    flakes[i].x = Math.random() * canvas.width;
-                }
-            }
-        }
+<img src="assets/banner/ff.jpg">
 
-        function update() {
-            drawSnow();
-            requestAnimationFrame(update);
-        }
-        update();
-    </script>
+</div>
+
+<div class="swiper-slide">
+
+<img src="assets/banner/lq.jpg">
+
+</div>
+
+</div>
+
+<div class="swiper-pagination"></div>
+
+</section>
+
+<!-- Danh mục -->
+
+<section class="category">
+
+<button>Tất cả</button>
+
+<button>PUBG</button>
+
+<button>Free Fire</button>
+
+<button>Liên Quân</button>
+
+<button>Tốc Chiến</button>
+
+<button>FPS</button>
+
+<button>MOBA</button>
+
+</section>
+
+<!-- Danh sách game -->
+
+<section id="gameList" class="games">
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+
+©2026 TITANIUM GAME STORE
+
+</p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="js/app.js"></script>
 
 </body>
+
 </html>
+
+/* ===========================
+   TITANIUM GAME STORE
+   Glassmorphism Style
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    color:#fff;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 40px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#00d4ff;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#00d4ff;
+}
+
+.search{
+    position:relative;
+}
+
+.search input{
+
+    width:280px;
+
+    padding:12px 45px 12px 15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+}
+
+.search i{
+
+position:absolute;
+
+right:18px;
+
+top:13px;
+
+}
+
+/* Banner */
+
+.swiper{
+
+height:350px;
+
+margin:30px;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+
+}
+
+.swiper img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+/* Category */
+
+.category{
+
+display:flex;
+
+gap:15px;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+margin:40px 20px;
+
+}
+
+.category button{
+
+padding:12px 22px;
+
+border:none;
+
+border-radius:30px;
+
+cursor:pointer;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+color:white;
+
+transition:.3s;
+
+}
+
+.category button:hover{
+
+background:#00bfff;
+
+transform:translateY(-3px);
+
+}
+
+/* Game Grid */
+
+.games{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+
+gap:25px;
+
+padding:40px;
+
+}
+
+/* Card */
+
+.card{
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.1);
+
+backdrop-filter:blur(20px);
+
+border-radius:20px;
+
+overflow:hidden;
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 40px rgba(0,212,255,.2);
+
+}
+
+.card img{
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+}
+
+.card-content{
+
+padding:18px;
+
+}
+
+.card h2{
+
+font-size:22px;
+
+margin-bottom:10px;
+
+}
+
+.card p{
+
+color:#d6d6d6;
+
+font-size:15px;
+
+margin-bottom:15px;
+
+}
+
+/* Info */
+
+.info{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:18px;
+
+font-size:14px;
+
+color:#bbb;
+
+}
+
+/* Button */
+
+.buttons{
+
+display:flex;
+
+gap:10px;
+
+}
+
+.download{
+
+flex:1;
+
+background:#00c853;
+
+padding:12px;
+
+text-align:center;
+
+border-radius:12px;
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.download:hover{
+
+background:#00e676;
+
+}
+
+.key{
+
+flex:1;
+
+background:#ff9800;
+
+padding:12px;
+
+text-align:center;
+
+border-radius:12px;
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.key:hover{
+
+background:#ffb300;
+
+}
+
+/* Footer */
+
+footer{
+
+margin-top:50px;
+
+padding:30px;
+
+text-align:center;
+
+color:#aaa;
+
+}
+
+/* Animation */
+
+.card{
+
+animation:fade .7s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+nav{
+
+flex-direction:column;
+
+gap:20px;
+
+padding:20px;
+
+}
+
+.search input{
+
+width:100%;
+
+}
+
+.menu{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.swiper{
+
+height:220px;
+
+margin:15px;
+
+}
+
+.games{
+
+padding:20px;
+
+}
+
+}
+
+// ==========================
+// TITANIUM GAME STORE
+// app.js
+// ==========================
+
+// Khởi tạo Swiper
+const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    speed: 800,
+    autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+
+// Danh sách game mẫu
+const games = [
+    {
+        id: 1,
+        name: "PUBG Mobile",
+        category: "PUBG",
+        version: "3.9",
+        size: "1.2 GB",
+        rating: "4.8",
+        image: "assets/games/pubg.jpg",
+        download: "#",
+        key: "#"
+    },
+
+    {
+        id: 2,
+        name: "Free Fire",
+        category: "Free Fire",
+        version: "1.110",
+        size: "850 MB",
+        rating: "4.6",
+        image: "assets/games/ff.jpg",
+        download: "#",
+        key: "#"
+    },
+
+    {
+        id: 3,
+        name: "Liên Quân Mobile",
+        category: "Liên Quân",
+        version: "1.60",
+        size: "2 GB",
+        rating: "4.9",
+        image: "assets/games/lq.jpg",
+        download: "#",
+        key: "#"
+    },
+
+    {
+        id: 4,
+        name: "Tốc Chiến",
+        category: "Tốc Chiến",
+        version: "6.2",
+        size: "3 GB",
+        rating: "4.8",
+        image: "assets/games/wr.jpg",
+        download: "#",
+        key: "#"
+    }
+];
+
+const gameList = document.getElementById("gameList");
+
+// Hiển thị game
+function renderGames(list) {
+
+    gameList.innerHTML = "";
+
+    list.forEach(game => {
+
+        gameList.innerHTML += `
+
+<div class="card">
+
+<img src="${game.image}" alt="${game.name}">
+
+<div class="card-content">
+
+<h2>${game.name}</h2>
+
+<p>Phiên bản ${game.version}</p>
+
+<div class="info">
+
+<span>⭐ ${game.rating}</span>
+
+<span>📦 ${game.size}</span>
+
+</div>
+
+<div class="buttons">
+
+<a class="download" href="${game.download}">
+
+📥 Tải
+
+</a>
+
+<a class="key" href="${game.key}">
+
+🔑 Key
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+    });
+
+}
+
+renderGames(games);
+
+//======================
+// Tìm kiếm
+//======================
+
+const search = document.getElementById("searchInput");
+
+search.addEventListener("keyup", () => {
+
+const keyword = search.value.toLowerCase();
+
+const result = games.filter(game =>
+
+game.name.toLowerCase().includes(keyword)
+
+);
+
+renderGames(result);
+
+});
+
+//======================
+// Danh mục
+//======================
+
+const buttons = document.querySelectorAll(".category button");
+
+buttons.forEach(button=>{
+
+button.onclick=()=>{
+
+const text=button.innerText;
+
+if(text=="Tất cả"){
+
+renderGames(games);
+
+return;
+
+}
+
+const result=games.filter(game=>game.category==text);
+
+renderGames(result);
+
+}
+
+});
+
+//======================
+// Hiệu ứng xuất hiện
+//======================
+
+window.addEventListener("scroll",()=>{
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+const top=card.getBoundingClientRect().top;
+
+if(top<window.innerHeight-80){
+
+card.style.opacity="1";
+
+card.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+//======================
+// Yêu thích
+//======================
+
+let favorite=[];
+
+function addFavorite(id){
+
+if(!favorite.includes(id)){
+
+favorite.push(id);
+
+localStorage.setItem("favorite",JSON.stringify(favorite));
+
+}
+
+}
+
+//======================
+// Dark Mode
+//======================
+
+if(localStorage.getItem("theme")=="light"){
+
+document.body.classList.add("light");
+
+}
+
+[
+  {
+    "id": 1,
+    "name": "PUBG Mobile",
+    "category": "PUBG",
+    "version": "3.9",
+    "size": "1.2 GB",
+    "rating": 4.8,
+    "downloads": "500K+",
+    "developer": "Tencent Games",
+    "image": "assets/games/pubg.jpg",
+    "banner": "assets/banner/pubg.jpg",
+    "description": "Game sinh tồn nổi tiếng với đồ họa đẹp và nhiều chế độ chơi.",
+    "download": "https://example.com/pubg",
+    "key": "https://example.com/key/pubg"
+  },
+  {
+    "id": 2,
+    "name": "Free Fire",
+    "category": "Free Fire",
+    "version": "1.110",
+    "size": "850 MB",
+    "rating": 4.6,
+    "downloads": "1M+",
+    "developer": "Garena",
+    "image": "assets/games/ff.jpg",
+    "banner": "assets/banner/ff.jpg",
+    "description": "Game battle royale nhẹ, phù hợp nhiều thiết bị.",
+    "download": "https://example.com/freefire",
+    "key": "https://example.com/key/freefire"
+  },
+  {
+    "id": 3,
+    "name": "Liên Quân Mobile",
+    "category": "Liên Quân",
+    "version": "1.60",
+    "size": "2 GB",
+    "rating": 4.9,
+    "downloads": "700K+",
+    "developer": "Garena",
+    "image": "assets/games/lq.jpg",
+    "banner": "assets/banner/lq.jpg",
+    "description": "Game MOBA 5v5 với nhiều tướng và chế độ xếp hạng.",
+    "download": "https://example.com/lienquan",
+    "key": "https://example.com/key/lienquan"
+  }
+]
+
