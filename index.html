@@ -1,381 +1,182 @@
 <!DOCTYPE html>
-<html lang="vi"> 
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh Mục Bản Hack Game</title>
+    <title>Fang Mod FF 🦠</title>
     <style>
-        /* CSS RESET & GENERAL STYLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        *{margin:0;padding:0;box-sizing:border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif}
+        body{color:#2d3748;line-height:1.4;background:linear-gradient(180deg, #f8f5ff 0%, #ede7f9 100%);min-height:100vh;overflow-x:hidden}
+
+        /* ========== HIỆU ỨNG TUYẾT RƠI ========== */
+        .tuyet{position:fixed;top:-10px;z-index:9999;pointer-events:none;filter:drop-shadow(0 0 4px rgba(255,255,255,0.9))}
+        @keyframes roiTuyet{
+            0%{transform:translateY(-10px) rotate(0deg);opacity:1}
+            100%{transform:translateY(100vh) rotate(360deg);opacity:0.2}
         }
 
-        body {
-            background-color: #0f111a;
-            color: #ffffff;
-            padding: 20px;
-        }
+        /* ========== PHẦN 1 - TRANG ĐẦU ========== */
+        .phan-1{padding:24px 20px 8px;position:relative;background:transparent}
+        .thoi-gian{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.85);border:2px solid #a78bfa;padding:8px 18px;border-radius:30px;font-size:16px;font-weight:500;color:#5b21b6;box-shadow:0 2px 8px rgba(167,139,250,0.15)}
+        .menu-btn{position:absolute;top:24px;right:20px;width:44px;height:44px;background:rgba(255,255,255,0.85);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#5b21b6;box-shadow:0 2px 8px rgba(167,139,250,0.15)}
+        .avatar-khung{text-align:center;margin-top:50px;margin-bottom:12px}
+        .avatar{width:120px;height:120px;border-radius:50%;border:3px solid #c4b5fd;object-fit:cover;background:#ddd6fe}
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 20px 0;
-            border-bottom: 2px solid #1f2335;
-        }
+        /* === CHỮ MÀU HÀI HÒA NỀN TÍM NHẸ === */
+        .ten-nho{display:inline-block;background:linear-gradient(90deg,#ec4899,#8b5cf6,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding:6px 20px;border-radius:20px;font-size:15px;font-weight:600;margin-bottom:10px}
+        .chao-txt{text-align:center;font-size:18px;color:#7c3aed;margin-bottom:4px}
+        .ten-lon{text-align:center;font-size:36px;font-weight:800;margin-bottom:8px}
+        .ten-mau-cauvong{background:linear-gradient(90deg,#ec4899,#f97316,#eab308,#10b981,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .dau-tich-xanh{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#2563eb;border-radius:50%;color:#fff;font-size:18px;margin-left:6px;vertical-align:middle;font-weight:bold;box-shadow:0 2px 6px rgba(37,99,235,0.3)}
+        .huong-dan-txt{text-align:center;font-size:18px;color:#4f46e5;margin-bottom:22px}
 
-        header h1 {
-            color: #ff3e3e;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(255, 62, 62, 0.5);
-        }
+        .thong-ke-khung{display:flex;justify-content:space-around;align-items:center;gap:8px;background:rgba(255,255,255,0.9);padding:20px 16px;border-radius:20px;max-width:460px;margin:0 auto;box-shadow:0 4px 16px rgba(139,92,246,0.12)}
+        .cot-tk{text-align:center;flex:1}
+        .so-tk{font-size:34px;font-weight:700;background:linear-gradient(90deg,#f59e0b,#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+        .chu-tk{font-size:15px;color:#6b7280}
+        .ngang-ke{width:1px;height:36px;background:#ddd6fe}
 
-        header p {
-            color: #8c92ac;
-            margin-top: 10px;
-        }
+        /* ========== PHẦN 2 - SẢN PHẨM ========== */
+        .phan-2{padding:8px 20px 35px;background:transparent}
+        .tieu-de-phan2{font-size:30px;font-weight:800;margin-bottom:18px;background:linear-gradient(90deg,#ec4899,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .khung-sp{background:rgba(255,255,255,0.9);border-radius:20px;padding:16px;border:1px solid #e0e7ff;max-width:480px;margin:0 auto;box-shadow:0 2px 12px rgba(139,92,246,0.08)}
+        .anh-sp-khung{width:100%;height:220px;border-radius:12px;margin-bottom:14px;background:#ede9fe;overflow:hidden}
+        .anh-sp-khung img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+        .nhan-capnhat{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#166534;padding:8px 18px;border-radius:30px;font-size:15px;margin-bottom:12px;border:1px solid #bbf7d0}
+        .ten-sp{font-size:22px;font-weight:bold;margin-bottom:8px;color:#1e293b}
+        .mo-ta-sp{color:#475569;margin-bottom:18px;font-size:16px;line-height:1.5}
+        .nut-group{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:center}
+        .nut-sp{padding:16px 8px;border-radius:14px;text-align:center;text-decoration:none;color:#fff;font-weight:bold;font-size:18px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,0.1)}
+        .nut-xanh{background:linear-gradient(135deg,#3b82f6,#60a5fa)}
+        .nut-vang{background:linear-gradient(135deg,#fbbf24,#fcd34d);color:#1f2937}
+        .nut-hong{background:linear-gradient(135deg,#ec4899,#f472b6)}
 
-        /* CARD CONTAINER */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* HACK CARD STYLES */
-        .hack-card {
-            background-color: #1a1d2e;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #2b304a;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hack-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 62, 62, 0.2);
-            border-color: #ff3e3e;
-        }
-
-        /* Chèn link ảnh hack vào đây */
-        .hack-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid #2b304a;
-        }
-
-        .hack-info {
-            padding: 20px;
-        }
-
-        .hack-title {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: #00ffcc;
-        }
-
-        .hack-status {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .status-working {
-            background-color: #2e7d32;
-            color: #fff;
-        }
-
-        .status-updating {
-            background-color: #ef6c00;
-            color: #fff;
-        }
-
-        .hack-description {
-            color: #a9b1d6;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            height: 70px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* BUTTONS */
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .btn {
-            display: block;
-            text-align: center;
-            padding: 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.95rem;
-            transition: background 0.2s;
-        }
-
-        /* Chèn link tải */
-        .btn-download {
-            background-color: #ff3e3e;
-            color: #fff;
-        }
-
-        .btn-download:hover {
-            background-color: #e03232;
-        }
-
-        /* Chèn link lấy key */
-        .btn-key {
-            background-color: #24283b;
-            color: #00ffcc;
-            border: 1px solid #00ffcc;
-        }
-
-        .btn-key:hover {
-            background-color: #00ffcc;
-            color: #1a1d2e;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #565f89;
-            font-size: 0.9rem;
-        }
+        /* ========== PHẦN 3 - CHÂN TRANG ========== */
+        .phan-3{padding:35px 20px 25px;text-align:center;border-top:1px solid #ddd6fe;background:transparent}
+        .ten-chan{font-size:36px;font-weight:800;background:linear-gradient(90deg,#0d9488,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+        .mo-ta-chan{font-size:18px;color:#64748b;margin-bottom:12px}
+        .tieuchi-chan{font-size:24px;font-weight:bold;margin-bottom:20px;letter-spacing:0.5px;background:linear-gradient(90deg,#65a30d,#84cc16);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .nut-chan-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:18px}
+        .nut-chan{background:rgba(255,255,255,0.8);padding:14px 32px;border-radius:50px;text-decoration:none;color:#475569;font-size:17px;font-weight:500;box-shadow:0 2px 6px rgba(139,92,246,0.08)}
+        .ban-quyen{font-size:18px;color:#94a3b8}
+        .nut-len-top{display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(255,255,255,0.8);border-radius:8px;color:#5b21b6;font-size:22px;text-decoration:none;margin-top:12px;margin-left:auto;box-shadow:0 2px 6px rgba(139,92,246,0.1)}
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>𝗙𝗔𝗡𝗚 𝗛𝗔𝗞𝗜</h1>
-        <p>Tổng Hợp Các Bản Hack Game & Share Free</p>
-    </header>
+<!-- HIỆU ỨNG TUYẾT RƠI -->
+<div id="khungTuyet"></div>
 
-    <div class="container">
-
-        <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/21552CC3-FC4B-49E5-89EF-970B4FF2DEF1_20260514_163107_6b771a.png" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK PUBG DRACULA PRO (IOS)</h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Mod Skin , ...</p>
-                <div class="btn-group">
-                    <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fdracula.vn%2Fapi%2Fplist.php%3Fapp_id%3Dd26ccc81-94e6-4aee-af7d-afbc6a8e0ebb" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/GSo0CC" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="hack-card">
-            <img class="hack-image" src="https://i.postimg.cc/Th8m29tv/IMG-1676.jpg" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK PUBG LUXURY (IOS)</h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Mod Skin , ...
-                
-                <div class="btn-group">
-                    <a href="https://appinstall.cloud/install/hecoiwc02222?v=1782647973" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/PSho70" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/9B247E1E-DEAF-4DD6-8677-148334522007_20260517_120823_7e9d08.png" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK PUBG ZORO (IOS)</h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm : Aimbot , Esp , Mod Skin , ...</p>
-                
-                <div class="btn-group">
-                    <a href="https://appinstall.cloud/install/xkgpdfs44444" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/KwhxXq" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://i.postimg.cc/YCKftps5/IMG-1674.jpg" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK PUBG VN ERO (IOS)</h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Mod Skin , ...</p>
-                
-                <div class="btn-group">
-                    <a href="https://appinstall.cloud/install/zl0ou1bp4444" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/X4ukl2X" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/261B5AA8-739F-4447-A976-C642F7D3C023_20260512_070303_ddd2f9.png" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK PUBG RAVEN (IOS)</h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Mod Skin , ...</p>
-                
-                <div class="btn-group">
-                    <a href="https://transfer.it/t/m1CrFm0xHZAJ" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/mc9mlAF" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/1I7FRNQJ7_318U6A_20260323_054019_698bb9.jpeg" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK PUBG ZERO (IOS)</h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Mod Skin , ...</p>
-                
-                <div class="btn-group">
-                    <a href="https://chaptodocquyen.appinstall.cloud/VN.ipa" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/X4ukl2X" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://i.postimg.cc/W3305td9/IMG-1675.jpg" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK PUBG KONG (IOS)</h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Mod Skin , ...</p>
-                
-                <div class="btn-group">
-                    <a href="https://transfer.it/t/AQDHL9wHUBAR" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/X4ukl2X" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://i.postimg.cc/Pr75yXLp/IMG-1699.jpg" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK PUBG NTH (ADR)</h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Mod Skin , ...</p>
-                
-                <div class="btn-group">
-                    <a href="https://www.mediafire.com/file/ehg228t0bj6rmji/VNG_4.4.apk/file" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/uFTsL" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/IMG_3829_20260215_003832_ed4c64.jpeg" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK TIPA FREE FIRE MAX (IOS) </h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Other ,...</p>
-                
-                <div class="btn-group">
-                    <a href="https://ipa.xumod.vn/uploads/FFMExt_20260624_153925_e4340c.tipa" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/3udXsA" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/IMG_7672_20260624_064844_068917.jpeg" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK TIPA FREE FIRE TH (IOS) </h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp , Other ,...</p>
-                
-                <div class="btn-group">
-                    <a href="https://ipa.xumod.vn/uploads/FFExt_20260624_064325_a9ba3c.tipa" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/bHYa4Tt" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/IMG_5820_20260430_005057_ebaed1.png" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK CFL ZORO (IOS) </h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp ,...</p>
-                
-                <div class="btn-group">
-                    <a href="https://transfer.it/t/I0w7vx5D1JZT" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/9Dr5Nhp2" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/IMG_5645_20260422_234018_a9689c.png" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK CFL RAVEN (IOS) </h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp ,...</p>
-            
-                <div class="btn-group">
-                    <a href="https://transfer.it/t/2EYXPPp1lTgR" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.org/X4ukl2X" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-    
-    <div class="hack-card">
-            <img class="hack-image" src="https://ipa.xumod.vn/uploads/images/IMG_4089_20260304_121344_9006f3.jpeg" alt="Ảnh Menu">
-            
-            <div class="hack-info">
-                <h2 class="hack-title"> HACK CFL LUXURY (IOS) </h2>
-                <span class="hack-status status-working">Hoạt động tốt</span>
-                <p class="hack-description">Tính năng bao gồm: Aimbot , Esp ,...</p>
-                
-                <div class="btn-group">
-                    <a href="https://appinstall.cloud/install/mb0va2c44444" target="_blank" class="btn btn-download">TẢI HACK</a>
-                    <a href="https://link4m.net/8w0BgJ" target="_blank" class="btn btn-key">LẤY KEY FREE</a>
-                </div>
-            </div>
-        </div>
-
-    <div>
-        <p> TELE ADMIN <a href="https://t.me/FangLxr" class="tele-link" target="_blank">Tại Đây</a></p>
+<!-- ====================================== PHẦN 1 ====================================== -->
+<section class="phan-1">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div class="thoi-gian"><span id="dongHo">00:00:00</span> ☀️</div>
+        <div class="menu-btn">🇻🇳</div>
     </div>
-    
-    <div>
-        <p> KÊNH TELE <a href="https://t.me/FANGPUBGVN" class="tele-link" target="_blank">Tại Đây</a></p>
+
+    <div class="avatar-khung">
+        <img src="https://i.postimg.cc/qv4SDxT2/IMG-2381.jpg" class="avatar" alt="FANG HAKI">
     </div>
-    
-    <div>
-        <p> KÊNH CHAT <a href="https://t.me/FANGHAKICHAT" class="tele-link" target="_blank">Tại Đây</a></p>
+
+    <div style="text-align:center;">
+        <div class="ten-nho">Fang Mod FF 🦠</div>
+        <p class="chao-txt">Hi, I am</p>
+        <h1 class="ten-lon">
+            <span class="ten-mau-cauvong">Fang Mod FF 🦠</span>
+            <span class="dau-tich-xanh">✓</span>
+        </h1>
+        <p class="huong-dan-txt">Link Tải Mod Miễn Phí Ở Dưới 👇</p>
     </div>
-        
-    
+
+    <div class="thong-ke-khung">
+        <div class="cot-tk">
+            <div class="so-tk">500M+</div>
+            <div class="chu-tk">Lượt tải</div>
+        </div>
+        <div class="ngang-ke"></div>
+        <div class="cot-tk">
+            <div class="so-tk">2026</div>
+            <div class="chu-tk">Cập nhật</div>
+        </div>
+        <div class="ngang-ke"></div>
+        <div class="cot-tk">
+            <div class="so-tk">#1</div>
+            <div class="chu-tk">IOS</div>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================== PHẦN 2 ====================================== -->
+<section class="phan-2">
+    <h2 class="tieu-de-phan2">MOD SKIN FREE FREE IOS</h2>
+
+    <div class="khung-sp">
+        <div class="anh-sp-khung">
+            <img src="https://i.postimg.cc/1ts8fThN/IMG-2384.jpg" alt="Giao diện Dracula">
+        </div>
+
+        <div class="nhan-capnhat">✅ OB54</div>
+        <h3 class="ten-sp">MOD ASTUTE</h3>
+        <p class="mo-ta-sp">• Hỗ trợ tất cả ios</p>
+
+        <div class="nut-group">
+            <a href="https://link4m.org/toDTXgTP" class="nut-sp nut-xanh">Unlock ID</a>
+            <a href="https://link4m.org/jByfs" class="nut-sp nut-hong">File Mod</a>
+            <a href="https://link4m.org/utIq5OOv" class="nut-sp nut-vang">App PinProxy</a>
+            
+        </div>
+    </div>
+
+
+</section>
+
+<!-- ====================================== PHẦN 3 ====================================== -->
+<section class="phan-3">
+    <h2 class="ten-chan">Fang Mod FF 🦠</h2>
+    <p class="mo-ta-chan">Share Mod FF iOS & Android</p>
+    <p class="tieuchi-chan">🛡️ Vip • Antiban • Safe 🛡️</p>
+
+        <a href="https://www.tiktok.com/@fanglxr?_r=1&_t=ZS-981FcbFHGvo" class="nut-chan">TikTok</a>
+
+
+
+ 
+    <a href="#" class="nut-len-top">↑</a>
+</section>
+
+
+<script>
+// ========== ĐỒNG HỒ ==========
+function capNhatGio() {
+    const now = new Date();
+    const gio = String(now.getHours()).padStart(2, '0');
+    const phut = String(now.getMinutes()).padStart(2, '0');
+    const giay = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('dongHo').textContent = `${gio}:${phut}:${giay}`;
+}
+capNhatGio();
+setInterval(capNhatGio, 1000);
+
+// ========== TUYẾT RƠI ==========
+const khung = document.getElementById('khungTuyet');
+function taoTuyet() {
+    const tuyet = document.createElement('div');
+    tuyet.classList.add('tuyet');
+    tuyet.style.left = Math.random() * 100 + 'vw';
+    const thoigiantroi = Math.random() * 4 + 5;
+    tuyet.style.animationDuration = thoigiantroi + 's';
+    tuyet.style.opacity = Math.random() * 0.5 + 0.5;
+    const kichthuoc = Math.random() * 7 + 3;
+    tuyet.style.width = kichthuoc + 'px';
+    tuyet.style.height = kichthuoc + 'px';
+    tuyet.style.borderRadius = '50%';
+    tuyet.style.backgroundColor = '#ffffff';
+    tuyet.style.animation = `roiTuyet ${thoigiantroi}s linear forwards`;
+    khung.appendChild(tuyet);
+    setTimeout(() => tuyet.remove(), 10000);
+}
+setInterval(taoTuyet, 350);
+</script>
 
 </body>
 </html>
